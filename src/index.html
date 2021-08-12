@@ -2,9 +2,84 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+  <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/3.2.2/vue.global.prod.min.js"></script>
+  <script src="https://cdn.staticfile.org/element-plus/1.0.2-beta.70/index.full.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/element-plus/1.0.2-beta.70/theme-chalk/index.min.css">
+
   <title>西北工业大学 - 宿舍信息聚合</title>
 </head>
 <body>
-  content.
+  <div id="app">
+    <el-container>
+      <el-header class="title">
+        <span>宿舍信息聚合</span>
+      </el-header>
+      <el-container>
+        <el-aside width="200px">
+          <div class="slt">
+            <span>宿舍名称</span>
+            <el-select v-model="selectedDormName" filterable>
+              <el-option
+                v-for="item in nameOptions"
+                :key="item"
+                :label="item"
+                :value="item">
+              </el-option>
+            </el-select>
+          </div>
+          <div class="slt">
+            <span>宿舍座次</span>
+            <el-select v-model="selectedDormIndex" filterable>
+              <el-option
+                v-for="item in indexOptions"
+                :key="item"
+                :label="item"
+                :value="item">
+              </el-option>
+            </el-select>
+          </div>
+          <div class="slt">
+            <span>宿舍编号</span>
+            <el-select v-model="selectedDormId" filterable placeholder="请选择">
+              <el-option
+                v-for="item in idOptions"
+                :key="item.display"
+                :label="item.display"
+                :value="item">
+              </el-option>
+            </el-select>
+          </div>
+        </el-aside>
+        <el-main>
+          <el-table
+            :data="dormData"
+            stripe
+            style="width: 100%">
+            <el-table-column
+              prop="name"
+              label="宿舍名">
+            </el-table-column>
+            <el-table-column
+              prop="msg"
+              label="信息">
+            </el-table-column>
+          </el-table>
+          <!-- <el-pagination
+            :hide-on-single-page="true"
+            layout="prev, pager, next"
+            :total="dormNum"
+            :current-page="nowDormPage">
+          </el-pagination> -->
+        </el-main>
+      </el-container>
+    </el-container>
+  </div>
+  
+  <script src="./index.js"></script>
+  <link rel="stylesheet" href="./index.css">
 </body>
 </html>

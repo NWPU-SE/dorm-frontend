@@ -1,0 +1,27 @@
+.title > span {
+  font-size: 30px;
+}
+
+.el-header {
+  background-color: #B3C0D1;
+  text-align: center;
+  line-height: 55px;
+}
+
+.el-aside {
+  padding: 20px;
+  background-color: #D3DCE6;
+}
+
+.slt {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.slt > span {
+  font-size: 26px;
+}
+
+.slt > .el-select {
+  padding-top: 10px;
+}
